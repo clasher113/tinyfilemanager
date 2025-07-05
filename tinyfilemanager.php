@@ -1877,10 +1877,10 @@ if (isset($_GET['view'])) {
                     }
                 } elseif ($is_audio) {
                     // Audio content
-                    echo '<p><audio src="' . fm_enc($file_url) . '" controls preload="metadata"></audio></p>';
+                    echo '<p><audio src="' . fm_enc($file_url) . '" onvolumechange="localStorage.setItem(\'audio_volume\', this.volume);" onloadstart="this.volume=localStorage.getItem(\'audio_volume\');" controls preload="metadata"></audio></p>';
                 } elseif ($is_video) {
                     // Video content
-                    echo '<div class="preview-video"><video src="' . fm_enc($file_url) . '" width="640" height="360" controls preload="metadata"></video></div>';
+                    echo '<div class="preview-video"><video src="' . fm_enc($file_url) . '" onvolumechange="localStorage.setItem(\'video_volume\', this.volume);" onloadstart="this.volume=localStorage.getItem(\'video_volume\');" width="640" height="360" controls preload="metadata"></video></div>';
                 } elseif ($is_text) {
                     if (FM_USE_HIGHLIGHTJS) {
                         // highlight
